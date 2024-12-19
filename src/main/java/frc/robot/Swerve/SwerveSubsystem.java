@@ -133,12 +133,17 @@ public class SwerveSubsystem extends SubsystemBase {
      * @param chassisSpeeds Velocidades deseadas del chasis (avance, lateral y rotación).
      */
     public void drive(ChassisSpeeds chassisSpeeds) {
-        // Aplica velocidades del chasis a la cinemática
         SwerveModuleState[] moduleStates = DriveConstants.kDriveKinematics.toSwerveModuleStates(chassisSpeeds);
-
-        // Asigna los estados a los módulos
-        setModulesState(moduleStates);
+    
+        // Optimizar velocidades de las ruedas y asignar estados deseados
+        SwerveDriveKinematics.desaturateWheelSpeeds(moduleStates, DriveConstants.kPhysicalMaxSpeedMetersPerSecond);
+    
+        frontLeft.setDesiredState(moduleStates[0]);
+        frontRight.setDesiredState(moduleStates[1]);
+        backLeft.setDesiredState(moduleStates[2]);
+        backRight.setDesiredState(moduleStates[3]);
     }
+    
 
     /**
      * Asigna los estados deseados a los módulos Swerve.

@@ -6,9 +6,9 @@ import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
 
 /*
- * @Author: Juan Felipe Zepeda del Toro
- * @Author: Fernando Joel Cruz Briones
- * Version 1.0
+ * @author Juan Felipe Zepeda del Toro
+ * @author Fernando Joel Cruz Briones
+ * @version 1.1
  */
 
 public class constants {
@@ -35,7 +35,12 @@ public class constants {
         public static final double kPDrive = 0.5 ;
         public static final double kIDrive = 0.0 ;
         public static final double kDDrive = 0.0 ;
-        public static final double kFDrive = 0.2 ;
+        public static final double kFDrive = 0.02 ;
+
+        public static final double kPSteering = 0.5 ;
+        public static final double kISteering = 0.0 ;
+        public static final double kDSteering = 0.0 ;
+        public static final double kFSteering = 0.02 ;
         
         //Nombre del BUS de la CANivore
         public static String CAN_BUS_NAME = "6348 Horus CANivore";
